@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(
-  SimpleImgui 
+  guicpp 
   
   LANGUAGES
     C CXX
@@ -74,7 +74,7 @@ install(
     EXPORT
         ${PROJECT_NAME}Config
     NAMESPACE
-        Eletra::
+        pfaco::
     DESTINATION
         share/${PROJECT_NAME}/
 )
