@@ -1,0 +1,12 @@
+{
+    "name": "guicpp",
+    "version-string": "0.1.0",
+    "dependencies": [
+      "fmt",
+      {
+        "name": "imgui",
+        "default-features": false,
+        "features": [ "glfw-binding", "opengl3-gl3w-binding" ]
+      }
+    ]
+  }
