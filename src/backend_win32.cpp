@@ -8,7 +8,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-namespace ees::gui
+namespace guicpp
 {
 
 static void framebuffer_size_callback(GLFWwindow *window, int width, int height);

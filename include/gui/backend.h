@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 
-namespace ees::gui
+namespace guicpp
 {
     struct BackendContext {
         void *window;

@@ -7,7 +7,7 @@
 #include <chrono>
 #include <gui/backend.h>
 
-namespace ees::gui
+namespace guicpp
 {
 
 struct Size
@@ -390,12 +390,12 @@ public:
     {
         while (!backend_should_close(ctx_))
         {
-            ees::gui::backend_set_frame(ctx_);
+            guicpp::backend_set_frame(ctx_);
             for (auto &w : widgets_) {
                 w.draw();
             }
             log_.draw();
-            ees::gui::backend_render(ctx_);
+            guicpp::backend_render(ctx_);
         }
     }
 

@@ -2,7 +2,7 @@
 #include "imgui.h"
 #include "imgui_memory_editor.h"
 
-namespace ees::gui
+namespace guicpp
 {
 
 void Label::draw() const
