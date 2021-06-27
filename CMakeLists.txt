@@ -1,11 +1,15 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(
-  guicpp 
-  
-  LANGUAGES
-    C CXX
-)
+file(TIMESTAMP "${CMAKE_CURRENT_LIST_DIR}/vcpkg.json" vcpkg_json_timestamp)
+if(VCPKG_JSON_TIMESTAMP_PREV STREQUAL vcpkg_json_timestamp)
+    set(VCPKG_MANIFEST_INSTALL OFF CACHE STRING "" FORCE)
+else()
+    set(VCPKG_MANIFEST_INSTALL ON CACHE STRING "" FORCE)
+endif()
+
+project(guicpp LANGUAGES CXX)
+
+set(VCPKG_JSON_TIMESTAMP_PREV "${vcpkg_json_timestamp}" CACHE STRING "" FORCE)
 
 find_package(fmt CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
@@ -16,7 +20,7 @@ target_compile_features(ResourceGenerator PUBLIC cxx_std_17)
 add_executable(Eletra::ResourceGenerator ALIAS ResourceGenerator)
 
 add_library(
-  ${PROJECT_NAME}
+  ${PROJECT_NAME} STATIC
 
   src/gui.cpp
   src/backend_win32.cpp
@@ -37,6 +41,7 @@ target_link_libraries(
   
   PUBLIC 
     fmt::fmt
+  PRIVATE
     imgui::imgui
 )
 
