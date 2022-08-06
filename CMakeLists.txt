@@ -13,6 +13,8 @@ set(VCPKG_JSON_TIMESTAMP_PREV "${vcpkg_json_timestamp}" CACHE STRING "" FORCE)
 
 find_package(fmt CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
+find_package(glfw3 CONFIG REQUIRED)
+find_package(gl3w CONFIG REQUIRED)
 
 add_executable(ResourceGenerator src/resources_generator.cpp)
 target_link_libraries(ResourceGenerator PRIVATE fmt::fmt)
@@ -41,8 +43,9 @@ target_link_libraries(
   
   PUBLIC 
     fmt::fmt
-  PRIVATE
     imgui::imgui
+    glfw
+    unofficial::gl3w::gl3w
 )
 
 target_compile_features(

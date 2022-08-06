@@ -3,10 +3,11 @@
     "version-string": "0.3.0",
     "dependencies": [
       "fmt",
+      "gl3w",
       {
         "name": "imgui",
         "default-features": false,
-        "features": [ "glfw-binding", "opengl3-gl3w-binding" ]
+        "features": [ "glfw-binding", "opengl3-binding" ]
       }
     ]
   }
