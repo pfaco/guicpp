@@ -55,6 +55,8 @@ target_compile_features(
     cxx_std_17
 )
 
+add_subdirectory(examples)
+
 ## Install headers
 install(
     FILES

@@ -386,17 +386,18 @@ public:
         log("error", std::forward<Args>(args)...);
     }
 
+    bool should_run() {
+        return !guicpp::backend_should_close(ctx_);
+    }
+
     void run()
     {
-        while (!backend_should_close(ctx_))
-        {
-            guicpp::backend_set_frame(ctx_);
-            for (auto &w : widgets_) {
-                w.draw();
-            }
-            log_.draw();
-            guicpp::backend_render(ctx_);
+        guicpp::backend_set_frame(ctx_);
+        for (auto &w : widgets_) {
+            w.draw();
         }
+        log_.draw();
+        guicpp::backend_render(ctx_);
     }
 
     Application& add(Widget &&w) {

@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
     header << "#endif\n\n";
 
     for (const auto & entry : fs::directory_iterator(argv[3])) {
-        std::ifstream input(entry, std::ios::binary);
+        std::ifstream input(entry.path(), std::ios::binary);
         std::vector<char> bytes(
             (std::istreambuf_iterator<char>(input)),
             (std::istreambuf_iterator<char>()));
